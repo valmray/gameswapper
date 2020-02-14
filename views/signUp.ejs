@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Sign Up</title>
+</head>
+
+<body id="wrapper">
+	<header>
+    <link rel="stylesheet" href="/resources/indexCSS.css">
+    <link rel="stylesheet" href="/resources/signUpCSS.css">
+
+
+    <% include partials/header.ejs %>
+
+
+    <% include partials/user-navigation.ejs %>
+
+        <div id="fillerTop">
+
+        </div>
+	</header>
+
+	<main>
+
+    <% include partials/site-navigation.ejs %>
+
+        <div id="filler">
+
+        </div>
+        <div id="floatRight">
+            <h5>Home > Sign Up</h5>
+
+            <div id="border2">
+            <div class="inside">
+        <h1>Sign Up</h1>
+        </div>
+        <form action="/signUp" method="POST">
+
+                <div class="text2"><br><label for="first">Enter Your First Name:</label></div>
+                <div class="user"><input type="text" name="first" id="first" placeholder="First Name" required minlength="2" size="10"><br></div>
+
+                <div class="text2"><label for="last">Enter Your Last Name:</label></div>
+                <div class="user"><input type="text" name="last" id="last" placeholder="Last Name" required minlength="2" size="10" ><br></div>
+
+                <div class="text2"><label for="email">Enter Your Email: </label></div>
+                <div class="user"><input type="email" name="email" id="email" required placeholder="person123@example.com"><br></div>
+
+                <div class="text2"><label for="address1">Enter Your 1st Address :</label></div>
+                <div class="user"><input type="text" name="address1" id="address1" placeholder="Address 1" required minlength="2" size="10"><br></div>
+
+                <div class="text2"><label for="address2">Enter Your 2nd Address :</label><br></div>
+                <div class="user"><input type="text" name="address2" id="address2" placeholder="Address 2" required minlength="2" size="10"><br></div>
+
+
+                <div class="text2"><label for="city">Enter Your City :</label></div>
+                <div class="user"><input type="text" name="city" id="city" placeholder="City" required minlength="2" size="10"><br></div>
+
+
+                <div class="text2"><label for="state">Enter Your State/Region :</label></div>
+                <div class="user"><input type="text" name="state" id="state" placeholder="State" required minlength="2" size="10"><br></div>
+
+
+                <div class="text2"><label for="zip">Enter Your Zipcode :</label></div>
+                <div class="user"><input type="text" name="zip" id="zip" placeholder="Zipcode" required minlength="2" size="10"><br></div>
+
+                <div class="text2"><label for="country">Enter Your Country :</label></div>
+                <div class="user"><input type="text" name="country" id="country" placeholder="Country" required minlength="2" size="10"><br></div>
+
+
+                <div class="text2"><label for="password">Enter Your Password:</label></div>
+                <div class="user"><input type="password" name="password" id="password" size="10" minlength="7" required><br></div>
+
+
+
+                <input type="submit" id="submit">
+
+            </form><br><br><br><br>
+
+						<% if(errors.length > 0){ %>
+
+					 	 <label><b>Error(s):</b></label>
+					 	 <ul>
+					 		 <% for(var i = 0; i < errors.length; i++){ %>
+					 			 <li><b><%= errors[i].msg %></b></li>
+					 		 <% } %>
+					 	 </ul>
+
+					  <% }else{} %>
+
+          </div>
+
+        </div>
+
+        <div id="fillerBottom">
+
+        </div>
+
+	</main>
+
+  <% include partials/footer.ejs %>
+
+
+</body>
+</html>

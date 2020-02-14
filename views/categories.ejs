@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Categories</title>
+</head>
+
+<body id="wrapper">
+	<header>
+    <link rel="stylesheet" href="/resources/indexCSS.css" type="text/css">
+    <link rel="stylesheet" href="/resources/categoriesCSS.css">
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <!-- <script src="/resources/categoriesJS.js"></script> -->
+
+    <% include partials/header.ejs %>
+
+    <% include partials/user-navigation.ejs %>
+
+        <div id="fillerTop">
+
+        </div>
+	</header>
+
+	<main>
+    <% include partials/site-navigation.ejs %>
+
+        <div id="filler">
+
+        </div>
+
+        <div id="floatRight">
+            <h5>Home > Categories</h5>
+<!--            Categories: Video Games(Genres of video games), Board Games, Card Games-->
+<!--            Use drop-down list for organization?-->
+							<form action="categories" method="get">
+            		<label for="genres">Choose a specific genre</label><br><br>
+
+                <select name="catalogCategory" id="genres" size="1">
+                    <option value="blank">All Genres</option>
+                    <option value="Platformer">Platformer</option>
+                    <option value="RPG">RPG</option>
+                    <option value="Fighter">Fighter</option>
+                </select>
+
+								<input type="submit"/>
+							</form><br><br><br>
+
+								<% if(category === "" || category === "blank"){ %>
+
+									<label id="sGLabel">Platformer</label>
+									<ul>
+										<% searchR.forEach(function(item){ %>
+											<% if(item.category === "Platformer"){ %>
+											<li>
+												<a href="item?itemCode=<%= item.code %>" id="one" class="catLink"><%= item.name %></a>
+											</li>
+											<% } %>
+										<% }); %>
+									</ul>
+
+									<label>RPG</label>
+									<ul>
+										<% searchR.forEach(function(item){ %>
+											<% if(item.category === "RPG"){ %>
+											<li>
+												<a href="item?itemCode=<%= item.code %>" id="one" class="catLink"><%= item.name %></a>
+											</li>
+											<% } %>
+										<% }); %>
+									</ul>
+
+									<label>Fighter</label>
+									<ul>
+										<% searchR.forEach(function(item){ %>
+											<% if(item.category === "Fighter"){ %>
+											<li>
+												<a href="item?itemCode=<%= item.code %>" id="one" class="catLink"><%= item.name %></a>
+											</li>
+											<% } %>
+										<% }); %>
+									</ul>
+									<% } else{ %>
+                <label><%= category %></label>
+								<ul>
+									<% searchR.forEach(function(item){ %>
+										<% if(item.category === category){ %>
+										<li>
+											<a href="item?itemCode=<%= item.code %>" id="one" class="catLink"><%= item.name %></a>
+										</li>
+										<% } %>
+									<% }); %>
+								</ul>
+								<% } %><br>
+
+								<% if(errors.length > 0){ %>
+						      <label><b>Error(s):</b></label>
+						      <ul>
+						        <% for(var i = 0; i < errors.length; i++){ %>
+						          <li><b><%= errors[i].msg %></b></li>
+						        <% } %>
+						      </ul>
+
+						    <% }else{} %>
+        </div>
+
+        <div id="fillerBottom">
+
+        </div>
+
+	</main>
+
+  <% include partials/footer.ejs %>
+
+
+</body>
+</html>

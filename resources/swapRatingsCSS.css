@@ -1,0 +1,55 @@
+#swapPic
+{
+  float: left;
+  margin-top: 50px;
+  padding: 12px;
+  padding-right: 100px;
+  padding-left: 50px;
+  width: 100px;
+  height: 100px;
+}
+
+#wantPic
+{
+  float: left;
+
+}
+
+#wantPicText
+{
+  float: left;
+}
+
+#ratingsForm
+{
+  clear: both;
+  margin-top: 250px;
+
+}
+
+#itemRating
+{
+  width: 150px;
+
+}
+
+#swapperRating
+{
+  width: 150px;
+
+}
+
+label
+{
+  font-size: 20px;
+}
+
+#confirmSwap
+{
+  width: 150px;
+}
+
+#swapItemRating
+{
+  width: 150px;
+}

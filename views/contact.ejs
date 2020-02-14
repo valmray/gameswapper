@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Contact</title>
+</head>
+
+<body id="wrapper">
+	<header>
+		<link rel="stylesheet" href="/resources/indexCSS.css" type="text/css">
+		<link rel="stylesheet" href="/resources/contactCSS.css" type="text/css">
+
+    <% include partials/header.ejs %>
+
+    <% include partials/user-navigation.ejs %>
+
+        <div id="fillerTop">
+
+        </div>
+	</header>
+
+	<main>
+    <% include partials/site-navigation.ejs %>
+
+        <div id="filler">
+
+        </div>
+
+        <div id="floatRight">
+            <h5>Home > Contact</h5>
+						<h1>Please contact us if you have any questions</h1>
+            <p><b>Email</b>: email@email.com<br><br>
+                <b>Phone</b>: (123)456-7890
+            </p>
+
+						<form id="contact">
+							<div class="text">
+							<br><label for="usern">Enter Your Email:</label>
+									</div>
+							 <div class="user">
+							<input type="email" id="usern" required ><br><br>
+								 </div>
+							<div class="text">
+							<label for="passw">Enter Your Message:</label><br>
+									</div>
+					<div class="user">
+							<textarea required></textarea><br><br>
+					</div>
+
+					<div class="sign">
+							<input type="submit" value="Send" id="signin">
+					</div>
+
+						</form>
+        </div>
+
+        <div id="fillerBottom">
+
+        </div>
+
+	</main>
+
+  <% include partials/footer.ejs %>
+
+
+</body>
+</html>

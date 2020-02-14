@@ -1,0 +1,12 @@
+<div id="links">
+    <div class="insideLinks">
+    <% if(user===null || user===""){ %>
+    <a href="login" id="signInLink">Sign In</a> |
+    <% }else{ %>
+    <a href="login?action=signout" id="signInLink">Sign Out</a> |
+    <% } %>
+    <a href="myItems">My Games</a> |
+    <a href="mySwaps">My Swaps</a> |
+    <a href="cart">Cart</a>
+    </div>
+</div>

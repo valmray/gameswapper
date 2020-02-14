@@ -1,0 +1,19 @@
+form{
+  border: solid 2px skyblue;
+  padding: 10px;
+  width: 510px;
+  background-color:lavender;
+
+}
+
+textarea
+{
+  width: 500px;
+  height: 100px;
+}
+
+input[type=email]
+{
+  width: 250px;
+
+}

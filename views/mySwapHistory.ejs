@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>My Games</title>
+</head>
+
+<body id="wrapper">
+	<header>
+    <link rel="stylesheet" href="/resources/indexCSS.css" type="text/css">
+    <link rel="stylesheet" href="/resources/mySwapHistoryCSS.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <% include partials/header.ejs %>
+
+    <% include partials/user-navigation.ejs %>
+
+        <div id="fillerTop">
+
+        </div>
+	</header>
+
+	<main>
+    <% include partials/site-navigation.ejs %>
+
+        <div id="filler">
+
+        </div>
+
+        <div id="floatRight">
+          <h5>Home > My Games</h5>
+          <p>Table of the completed swap offers you initiated</p>
+          <!--            Table should have item name rating average (in stars), and description-->
+          <!--            Table should have an update button that links to the item page-->
+          <!--            Table should have a delete button that links back to the my items page-->
+          <table>
+
+            <thead>
+              <tr>
+                <th id="yourItem">Your Item</th>
+                <th id="yourItemRating">Your Item Rating</th>
+                <th id="status">Status</th>
+                <th id="swapItem">Swap Item</th>
+								<th id="swapItemRating">Swap Item Rating</th>
+								<th id="swapperRating">Swapper Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+							<% for(var i = 0; i < initiated.length; i++){ %>
+              <tr>
+                <td headers="yourItem" class="nameLinks"><a href="item?theItem=<%= initiated[i].userItem.code %>"><b><%= initiated[i].userItem.name %></b></a></td>
+
+                <td headers="yourItemRating">
+									<% for(var j = 0; j < initiated[i].rating; j++){ %>
+                  <span class="fa fa-star"></span>
+									<% } %>
+								</td>
+
+                <td headers="status"><%= initiated[i].status %></td>
+
+                <td headers="swapItem" class="nameLinks"><a href="item?theItem=<%= initiated[i].swapItem.code %>"><%= initiated[i].swapItem.name %></b></a></td>
+
+								<td headers="swapItemRating">
+									<% for(var j = 0; j < initiated[i].swapItemRating; j++){ %>
+                  <span class="fa fa-star"></span>
+									<% } %>
+								</td>
+
+								<td headers="swapperRating">
+									<% for(var j = 0; j < initiated[i].swapperRating; j++){ %>
+                  <span class="fa fa-star"></span>
+									<% } %>
+								</td>
+
+              </tr>
+							<% } %>
+            </tbody>
+          </table><br>
+
+					<p>Table of the completed swaps offers you accepted</p>
+
+					<table>
+
+						<thead>
+							<tr>
+								<th id="swappersItem">Swapper's Item</th>
+								<th id="swappersItemRating">Swapper's Item Rating</th>
+								<th id="status2">Status</th>
+								<th id="yourSwapItem">Your Item</th>
+								<th id="yourSwapItemRating">Your Item Rating</th>
+								<th id="yourRating">Your Rating</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% for(var i = 0; i < involved.length; i++){ %>
+							<tr>
+								<td headers="swappersItem" class="nameLinks"><a href="item?theItem=<%= involved[i].userItem.code %>"><b><%= involved[i].userItem.name %></b></a></td>
+
+								<td headers="swappersItemRating">
+									<% for(var j = 0; j < involved[i].rating; j++){ %>
+									<span class="fa fa-star"></span>
+									<% } %>
+								</td>
+
+								<td headers="status2"><%= involved[i].status %></td>
+
+								<td headers="yourSwapItem" class="nameLinks"><a href="item?theItem=<%= involved[i].swapItem.code %>"><b><%= involved[i].swapItem.name %></b></a></td>
+
+								<td headers="yourSwapItemRating">
+									<% for(var j = 0; j < involved[i].swapItemRating; j++){ %>
+									<span class="fa fa-star"></span>
+									<% } %>
+								</td>
+
+								<td headers="yourRating">
+									<% for(var j = 0; j < involved[i].swapperRating; j++){ %>
+									<span class="fa fa-star"></span>
+									<% } %>
+								</td>
+
+							</tr>
+							<% } %>
+						</tbody>
+					</table>
+
+        </div>
+
+        <div id="fillerBottom">
+
+        </div>
+
+	</main>
+
+  <% include partials/footer.ejs %>
+
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+
+table
+{
+    border-collapse: collapse;
+    border-bottom: 4px solid purple;
+	   margin: 20px;
+    align-content: center;
+    width: 1030px;
+
+}
+
+th, td
+{
+  border-collapse: collapse;
+	padding: .2em 1em .2em .5em;
+	text-align: justify;
+	vertical-align: middle;
+}
+td
+{
+    height: 50px;
+}
+thead
+{
+    border-bottom: 4px solid purple;
+}
+.nameLinks:hover a
+{
+    color: blue;
+}
+.nameLinks a
+{
+    text-decoration: underline;
+    color: deepskyblue;
+}
+.update
+{
+    margin-bottom: 4px;
+}
+
+button
+{
+    width: 150px;
+    border: 2px solid skyblue;
+    border-radius: 4px;
+    margin-left: 30px;
+
+}
+.pic
+{
+    margin-left: 16px;
+}
+.checked {
+    color: orange;
+}
+#name
+{
+    width: 300px;
+}
+#buttons
+{
+    width: 150px;
+}
+/*
+
+
+#rating
+{
+    width: 100px;
+}
+
+#swapped
+{
+    width: 50px;
+}
+
+
+
+
+
+#category
+{
+    width: 100px;
+} */

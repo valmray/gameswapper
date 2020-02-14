@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Sign In</title>
+</head>
+
+<body id="wrapper">
+	<header>
+    <link rel="stylesheet" href="/resources/indexCSS.css">
+    <link rel="stylesheet" href="/resources/signInCSS.css">
+
+    <% include partials/header.ejs %>
+
+
+    <% include partials/user-navigation.ejs %>
+
+        <div id="fillerTop">
+
+        </div>
+	</header>
+
+	<main>
+
+    <% include partials/site-navigation.ejs %>
+
+        <div id="filler">
+
+        </div>
+        <div id="floatRight">
+            <h5>Home > Sign In</h5>
+
+            <div id="border">
+            <div class="inside">
+        <h1>Sign In</h1>
+        </div>
+		<form action="/myItems" method="POST">
+            <div class="text">
+            <br><label for="usern">Enter Your Username:</label>
+                </div>
+             <div class="user">
+            <input type="text" id="usern" name="username" required><br><br>
+               </div>
+            <div class="text">
+            <label for="passw">Enter Your Password:</label><br>
+                </div>
+        <div class="user">
+            <input type="password" id="passw" name="password" required><br><br>
+        </div>
+
+        <div class="sign">
+            <input type="submit"  id="signin" name="action" value="signIn">
+        </div>
+
+			</form><br><br>
+
+				<p>Don't have an account? <a href="signUp">Register</a></p>
+
+
+				<br><br><br>
+
+		    <% if(errors.length > 0){ %>
+					<% if(errors[0].msg !== 'You have been successfully registered!'){ %>
+		      <label><b>Error(s):</b></label>
+					<% }else{} %>
+		      <ul>
+		        <% for(var i = 0; i < errors.length; i++){ %>
+		          <li><b><%= errors[i].msg %></b></li>
+		        <% } %>
+		      </ul>
+
+		    <% }else{} %>
+
+                    </div>
+
+        </div>
+
+        <div id="fillerBottom">
+
+        </div>
+
+	</main>
+
+  <% include partials/footer.ejs %>
+
+
+</body>
+</html>

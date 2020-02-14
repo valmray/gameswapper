@@ -1,0 +1,91 @@
+#border
+{
+    border: solid 4px skyblue;
+    padding: 20px;
+    width: 500px;
+    margin-left: 250px;
+    margin-top: 0px;
+    border-radius: 30px;
+    background-color:lavender;
+    text-align: center;
+    height: 380px
+}
+
+#border2
+{
+    border: solid 4px skyblue;
+    padding: 20px;
+    width: 500px;
+    margin-left: 250px;
+    margin-top: 0px;
+    border-radius: 30px;
+    background-color:lavender;
+    text-align: center;
+    height: 780px;
+}
+.inside
+{
+    margin-bottom: 50px;
+    font-size: 22px
+}
+
+.sign
+{
+
+}
+
+.user
+{
+    margin-left: 15px;
+}
+
+.text
+{
+    margin-left: 15px;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+}
+
+.text2
+{
+  margin-left: 15px;
+  margin-bottom: 5px;
+  font-family: sans-serif;
+}
+
+input[type=text]
+{
+   width: 200px;
+      border: solid 2px skyblue;
+    margin-bottom: 10px;
+
+}
+
+input[type=password]{
+    border: solid 2px skyblue;
+   width: 200px;
+}
+
+input[type=email]{
+    border: solid 2px skyblue;
+   width: 200px;
+}
+input[type=submit]{
+    margin-top: 50px;
+       font-family: sans-serif;
+    width: 100px;
+    height: 30px;
+    border: solid 2px skyblue;
+    border-radius: 30px;
+
+}
+
+input[type=submit]:hover{
+    background-color: aqua;
+
+
+}
+h1
+{
+    font-family: sans-serif;
+}

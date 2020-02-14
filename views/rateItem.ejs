@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title><%= item.name %></title>
+</head>
+
+<body id="wrapper">
+	<header>
+    <link rel="stylesheet" href="/resources/indexCSS.css" type="text/css">
+    <link rel="stylesheet" href="/resources/itemCSS.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <% include partials/header.ejs %>
+
+    <% include partials/user-navigation.ejs %>
+
+        <div id="fillerTop">
+
+        </div>
+	</header>
+
+	<main>
+    <% include partials/site-navigation.ejs %>
+
+        <div id="filler">
+
+        </div>
+
+        <div id="floatRight">
+            <h5>Home > Categories > Rate Game</h5>
+            <h1>Rate This Game</h1><br>
+            <img src="<%= item.imageUrl %>" id="gameImg" alt="box" onclick="index">
+
+            <div id="floatDetailsRight">
+            <h3><%= item.name %></h3>
+            <!-- <h4>Made By Nintendo</h4> -->
+
+
+
+
+
+            </div>
+<!--            Picture of the item, Category, Average Rating, Description-->
+<!--            Button that adds item to the swap list (should link to swap items page)-->
+            <p class="catRate">Category: <%= item.category %></p>
+            <p class="catRate"> Average Rating: <% for(var i = 0; i < item.rating; i++){ %>
+										<span class="fa fa-star"></span>
+                  <% } %>
+            <p id="gameDetails">
+              <%= item.description %>
+            </p>
+
+						<form action="item" method="get">
+              <input type="number" name="rating" min="1" max="5" width="100px">
+              <button type="submit" class="rateIt" name="itemCode" value="<%= item.code %>"><img src="/resources/star.png" class="buttonImg" id="rateItem" alt="star">Rate It</button>
+						</form>
+        </div>
+
+        <div id="fillerBottom">
+
+        </div>
+
+	</main>
+
+  <% include partials/footer.ejs %>
+
+
+</body>
+</html>

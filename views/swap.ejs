@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Swap</title>
+</head>
+
+<body id="wrapper">
+	<header>
+    <link rel="stylesheet" href="/resources/indexCSS.css" type="text/css">
+    <link rel="stylesheet" href="/resources/itemCSS.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <% include partials/header.ejs %>
+
+    <% include partials/user-navigation.ejs %>
+
+        <div id="fillerTop">
+
+        </div>
+	</header>
+
+	<main>
+    <% include partials/site-navigation.ejs %>
+
+        <div id="filler">
+
+        </div>
+
+        <div id="floatRight">
+            <h5>Home > Categories > Item > Swap</h5>
+            <img src="<%= item.imageUrl %>" id="gameImg" alt="box" onclick="index">
+
+            <div id="floatDetailsRight2">
+            <h3><%= item.name %></h3>
+
+            <p id="gameDetails2">
+
+                <%= item.description %>
+            </p>
+            </div>
+						<h3 id="selItem">Select an item from your available swaps</h3>
+
+            <form action="mySwaps" >
+
+
+            <table>
+
+              <thead>
+                <tr>
+                  <th id="swaps"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+								<% for(var i = 0; i < profile.userItems.length; i++){ %>
+
+                <tr>
+                  <td headers="swaps">
+                    <input type="radio" name="itemCode" value="<%= profile.userItems[i].code %>" checked />
+            				<label for="huey"><a href="item?itemCode=<%= profile.userItems[i].code %>&user=<%= user %>" class="swapLinks"><%= profile.userItems[i].name %></a></label>
+          				</td>
+                </tr>
+
+								<% } %>
+              </tbody>
+
+            </table><br>
+
+						<label for="yourItemRating"><b>Rating For Your Item:</b></label>
+						<input type="number"  id="yourItemRating" name="yourItemRating" min="1" max="5" required><br><br>
+
+
+
+
+						<h3 id="selUser">Select the user you want to swap with</h3>
+
+						<table>
+
+							<thead>
+								<tr>
+									<th id="swappers"></th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<% for(var i = 0; i < swappers.length; i++){ %>
+
+								<tr>
+									<td headers="swappers">
+										<input type="radio" name="swapperID" value="<%= swappers[i].userId %>" checked />
+										<label for="huey"><%= swappers[i].fname + " " + swappers[i].lname %></label>
+									</td>
+								</tr>
+
+								<% } %>
+							</tbody>
+
+						</table><br>
+
+						<label for="swapperRating"><b>Rating For The Swapper:</b></label>
+						<input type="number"  id="swapperRating" name="swapperRating" min="1" max="5" required><br><br>
+
+
+
+							<button type="submit" id="conSwap" name="offerCode" value="<%= item.code %>">Confirm Swap</button>
+						</form>
+<!--            Picture of the item, Category, Average Rating, Description-->
+<!--            Button that adds item to the swap list (should link to swap items page)-->
+            <!-- <p class="catRate">Category: Action, Platformer</p>
+            <p class="catRate"> Average Rating: <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span></p><br> -->
+            <!-- <p id="gameDetails">
+
+                <b>Explore incredible places far from the Mushroom Kingdom as you join Mario and his new ally Cappy on a massive, globe-trotting 3D adventure.</b><br><br>
+
+                Use amazing new abilities—like the power to capture and control objects, animals, and enemies—to collect Power Moons so you can power up the Odyssey airship and save Princess Peach from Bowser's wedding plans!
+            </p>
+
+						<form action="categories">
+							<button type="submit" class="swapIt">Return</button>
+						</form> -->
+        </div>
+
+        <div id="fillerBottom">
+
+        </div>
+
+	</main>
+
+  <% include partials/footer.ejs %>
+
+
+</body>
+</html>

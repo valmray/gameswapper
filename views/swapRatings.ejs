@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Swap Ratings</title>
+</head>
+
+<body id="wrapper">
+	<header>
+    <link rel="stylesheet" href="/resources/indexCSS.css" type="text/css">
+    <link rel="stylesheet" href="/resources/itemCSS.css">
+    <link rel="stylesheet" href="/resources/swapRatingsCSS.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <% include partials/header.ejs %>
+
+    <% include partials/user-navigation.ejs %>
+
+        <div id="fillerTop">
+
+        </div>
+	</header>
+
+	<main>
+    <% include partials/site-navigation.ejs %>
+
+        <div id="filler">
+
+        </div>
+
+        <div id="floatRight">
+            <h5>Home > Categories > Swap Ratings</h5>
+            <h1>Rate Your Game and The Swapper</h1><br>
+						<p><a href="item?itemCode=<%= userOffer.itemCodeOwn.code %>" class="swapLinks"><b><%= userOffer.itemCodeOwn.name %></b></a></p>
+
+            <img src="<%= userOffer.itemCodeOwn.imageUrl %>" id="gameImg" alt="box" onclick="index">
+
+            <div id="floatDetailsRight">
+
+
+            <!-- <h4>Made By Nintendo</h4> -->
+            </div>
+            <img src="/resources/swap.png" class="pic" alt="swap" id="swapPic">
+						<p id="wantPicText"><a href="item?itemCode=<%= userOffer.itemCodeWant.code %>" class="swapLinks"><b><%= userOffer.itemCodeWant.name %></b></a></p><br><br>
+
+
+            <img src="<%= userOffer.itemCodeWant.imageUrl %>" id="gameImg" alt="box" onclick="index" id="wantPic">
+
+
+<!--            Picture of the item, Category, Average Rating, Description-->
+<!--            Button that adds item to the swap list (should link to swap items page)-->
+
+
+						<form action="mySwapHistory" method="post" id="ratingsForm">
+              <label for="itemRating"><b>Rating For Your Item:</b></label>
+              <input type="number" id="itemRating"  name="itemRating" min="1" max="5" required><br><br>
+
+							<label for="swapItemRating"><b>Rating The Swap Item:</b></label>
+							<input type="number" id="swapItemRating"  name="swapItemRating" min="1" max="5" required><br><br>
+
+              <label for="swapperRating"><b>Rating For The Swapper:</b></label>
+              <input type="number"  id="swapperRating" name="swapperRating" min="1" max="5" required><br><br>
+
+              <button type="submit" class="rateIt" id="confirmSwap">Confirm Swap</button>
+						</form>
+        </div>
+
+        <div id="fillerBottom">
+
+        </div>
+
+	</main>
+
+  <% include partials/footer.ejs %>
+
+
+</body>
+</html>

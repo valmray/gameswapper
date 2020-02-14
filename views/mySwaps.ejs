@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>My Swaps</title>
+</head>
+
+<body id="wrapper">
+	<header>
+    <link rel="stylesheet" href="/resources/indexCSS.css" type="text/css">
+    <link rel="stylesheet" href="/resources/myItemsCSS.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <% include partials/header.ejs %>
+
+    <% include partials/user-navigation.ejs %>
+
+        <div id="fillerTop">
+
+        </div>
+	</header>
+
+	<main>
+    <% include partials/site-navigation.ejs %>
+
+        <div id="filler">
+
+        </div>
+
+        <div id="floatRight">
+          <h5>Home > My Swaps</h5>
+          <p>Table of the users games</p>
+          <!--            Table should have item name rating average (in stars), and description-->
+          <!--            Table should have an update button that links to the item page-->
+          <!--            Table should have a delete button that links back to the my items page-->
+          <table>
+
+            <thead>
+              <tr>
+                <th id="game">Game</th>
+                <th id="offer">Swap Offer</th>
+
+                <th id="buttons"></th>
+              </tr>
+            </thead>
+            <tbody>
+							<% for(var i = 0; i < userOffers.length; i++){ %>
+								<% if(userOffers[i].itemStatus === "pending"){ %>
+
+              <tr>
+                <td headers="game" class="nameLinks"><a href="item?itemCode=<%= userOffers[i].itemCodeOwn.code %>"><b><%= userOffers[i].itemCodeOwn.name %></b></a></td>
+                <td headers="offer" class="nameLinks"><a href="item?itemCode=<%= userOffers[i].itemCodeWant.code %>"><%= userOffers[i].itemCodeWant.name %></a></td>
+
+
+                <td headers="buttons">
+
+									<% if(userOffers[i].own == 0){ %>
+                  <form action="swapRatings?action=accept&position=<%= i %>" method="post">
+										<button type="submit" class="update" name="action" value="accept">Accept</button>
+                  </form>
+
+                  <form action="mySwaps?action=reject&position=<%= i %>" method="post">
+										<button type="submit" class="delete" name="action" value="reject">Reject</button>
+                  </form>
+									<% }else{ %>
+
+										<form action="mySwaps?action=withdraw&position=<%= i %>" method="post">
+											<button type="submit" class="delete" name="action" value="withdraw">Withdraw</button>
+	                  </form>
+
+										<% } %>
+
+                </td>
+              </tr>
+							<% }else{}%>
+
+							<% } %>
+
+            </tbody>
+          </table>
+
+        </div>
+
+        <div id="fillerBottom">
+
+        </div>
+
+	</main>
+
+  <% include partials/footer.ejs %>
+
+
+</body>
+</html>
